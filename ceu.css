@@ -1,0 +1,60 @@
+#ceumodal {
+	font: 400 18px/24px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #444;
+	display: none; 
+	z-index: 999; 
+	background: rgba(0,0,0,.6); 
+	width: 100vw; 
+	min-height: 100vh; 
+	position: fixed; 
+	top: 0; 
+	left: 0;	
+}
+
+#ceumodal hr {
+    border: none;
+    height: 1px;
+    background: #e3e3e3;
+}
+
+#ceumodal h1,
+#ceumodal h2,
+#ceumodal h3,
+#ceumodal h4,
+#ceumodal h5,
+#ceumodal h6 {
+	font-weight: 400;
+}
+
+#ceumodal label[id^="ceulbl"] {
+	cursor: pointer;
+}
+
+#ceupanel {
+	background: rgb(255,255,255); 
+	border: solid 1px #666; 
+	border-radius: 5px; 
+	padding: 15px; 
+}
+
+
+#ceudiv {
+	max-height: 480px; 
+	overflow: auto;
+}
+
+#ceup0 {
+
+}
+
+#ceumore {
+
+}
+
+#ceubtna {
+
+}
+
+#ceubtnd {
+
+}
