@@ -110,6 +110,12 @@ Ceu.run = function() {
         Positioner.hauto(cookiesPanel);
     } else {
         cookiesModal.style.display = 'none';
+        let dict = sessionStorage.getItem('allowCookies').split(',');
+        if ((Array.isArray(dict)) && (dict.length) && ('' !== dict[0])) {
+            dict.forEach (function(item) {
+                Loader.load(item);
+            });
+        }
     }
     document.getElementById('ceubtna').addEventListener('click', function() {
         let inputs = document.getElementsByName('scripts');

@@ -88,7 +88,8 @@ input[type=checkbox], input[type=radio] {
     padding-top: 0;
 }
 
-input[type=checkbox]:checked:before, input[type=checkbox]:indeterminate:before {
+input[type=checkbox]:checked:before, 
+input[type=checkbox]:indeterminate:before {
     content: "\2714";
     font-family: inherit;
     font-size: 22px;
