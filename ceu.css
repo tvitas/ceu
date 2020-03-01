@@ -78,17 +78,22 @@ input[type=checkbox], input[type=radio] {
     width: 21px;
     overflow: hidden;
     margin-top: -4px;
+    margin-right: 10px;
     vertical-align: middle;
     -webkit-appearance: none;
     outline: 0;
     background: 0 0;
     cursor: pointer;
+    border: solid 1px #e5e5e5;
+    padding-top: 0;
 }
 
 input[type=checkbox]:checked:before, input[type=checkbox]:indeterminate:before {
     content: "\2714";
     font-family: inherit;
-    font-size: 20px;
+    font-size: 22px;
+    line-height: 21px;
+    padding-left: 2px;
     -webkit-font-smoothing: antialiased;
     text-align: center;
 	color: #82bb42;
