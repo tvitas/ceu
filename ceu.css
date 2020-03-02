@@ -26,27 +26,14 @@
 	font-weight: 400;
 }
 
-
-#ceumodal label[id^="ceulbl"] {
+#ceumodal label {
 	cursor: pointer;
 }
 
-#ceupanel {
-	background: rgb(255,255,255); 
-	border: solid 1px #444; 
-	border-radius: 5px; 
-	padding: 15px; 
-}
-
-
-#ceudiv {
-	max-height: 480px; 
-	overflow: auto;
-}
-
-#ceubtna, #ceubtnd {
-	-webkit-appearance: none;
+#ceumodal button {
+    -webkit-appearance: none;
     margin: 0;
+    margin-right: 15px;
     border: none;
     overflow: visible;
     font: inherit;
@@ -72,7 +59,8 @@
     text-shadow: 0 -1px 0 rgba(0,0,0,.2);
 }
 
-input[type=checkbox], input[type=radio] {
+#ceumodal input[type=checkbox], 
+#ceumodal input[type=radio] {
     display: inline-block;
     height: 21px;
     width: 21px;
@@ -88,8 +76,8 @@ input[type=checkbox], input[type=radio] {
     padding-top: 0;
 }
 
-input[type=checkbox]:checked:before, 
-input[type=checkbox]:indeterminate:before {
+#ceumodal input[type=checkbox]:checked:before, 
+#ceumodal input[type=checkbox]:indeterminate:before {
     content: "\2714";
     font-family: inherit;
     font-size: 22px;
@@ -97,5 +85,18 @@ input[type=checkbox]:indeterminate:before {
     padding-left: 2px;
     -webkit-font-smoothing: antialiased;
     text-align: center;
-	color: #82bb42;
+    color: #82bb42;
+}
+
+
+#ceupanel {
+	background: rgb(255,255,255); 
+	border: solid 1px #444; 
+	border-radius: 5px; 
+	padding: 15px; 
+}
+
+#ceutext {
+	max-height: 480px; 
+	overflow: auto;
 }
