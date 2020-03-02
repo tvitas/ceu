@@ -2,9 +2,9 @@
 let dictionary = {};
 const i18n = {
     lt: {
-        ceutext: 'Interneto svetainėse *.lsmu.lt ir *.lsmuni.lt naudojami griežtai privalomi (techniniai) \
-            ir analitiniai slapukai. Techninių slapukų naudojimas yra būtinas tam, kad svetainės veiktų teisingai, o \
-            ar naudoti analitinius slapukus, <strong>Jus galite pasirinkti žemiau</strong>.',
+        ceutext: 'Interneto svetainėse *.lsmu.lt ir *.lsmuni.lt naudojami griežtai privalomi (techniniai) ' + 
+            'ir analitiniai slapukai. Techninių slapukų naudojimas yra būtinas tam, kad svetainės veiktų teisingai, o ' +
+            'ar naudoti analitinius slapukus, <strong>Jus galite pasirinkti žemiau</strong>.',
         ceubtna: 'Tęsti su pasirinktais slapukais',
         ceubtnd: 'Tęsti be slapukų',
         ceuh3: 'Slapukai',
@@ -15,8 +15,8 @@ const i18n = {
         fbpixel: '„Facebook pixel“'
     },
     en: {
-        ceutext: 'This site is using technical and analytic cookies. Technical cookies are necessary for functioning of \
-            this site. Which kind of analytic cookies to use <strong>You can select below</strong>.',
+        ceutext: 'This site is using technical and analytic cookies. Technical cookies are necessary for functioning of ' +
+            'this site. Which kind of analytic cookies to use <strong>You can select below</strong>.',
         ceubtna: 'Continue with selected cookies',
         ceubtnd: 'Continue without any cookie',
         ceuh3: 'Cookies',
