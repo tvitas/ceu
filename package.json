@@ -1,6 +1,30 @@
 {
-  	"name": "ceu",
-  	"description": "CEU loader",
-  	"repository": "https://github.com/tvitas/ceu.git",
-  	"license": "GPL"
+  "name": "ceu",
+  "version": "1.0.0",
+  "description": "CEU loader",
+  "main": "ceu.js",
+  "dependencies": {},
+  "devDependencies": {
+  	"@node-minify/core": "^5.3.0",
+	"@node-minify/google-closure-compiler": "^5.3.0",
+	"@node-minify/clean-css": "^5.3.0"
+  },
+  "scripts": {
+    "test": "\"Error: no test specified\" && exit 0",
+    "min": "node minify.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tvitas/ceu.git"
+  },
+  "keywords": [
+    "CEU",
+    "loader"
+  ],
+  "author": "vitalijus.trainys@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tvitas/ceu/issues"
+  },
+  "homepage": "https://github.com/tvitas/ceu#readme"
 }
