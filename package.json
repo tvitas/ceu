@@ -5,9 +5,9 @@
   "main": "ceu.js",
   "dependencies": {},
   "devDependencies": {
-  	"@node-minify/core": "^5.3.0",
-	"@node-minify/google-closure-compiler": "^5.3.0",
-	"@node-minify/clean-css": "^5.3.0"
+    "@node-minify/core": "^5.3.0",
+    "@node-minify/google-closure-compiler": "^5.3.0",
+    "@node-minify/clean-css": "^5.3.0"
   },
   "scripts": {
     "test": "\"Error: no test specified\" && exit 0",
@@ -21,7 +21,7 @@
     "CEU",
     "loader"
   ],
-  "author": "vitalijus.trainys@gmail.com",
+  "author": "tvitas",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tvitas/ceu/issues"
