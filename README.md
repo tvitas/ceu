@@ -3,7 +3,7 @@ Displays cookies select panel and loads analytic scripts by user selection.
 
 ## Usage
 
-At the end of <body> tag:
+At the end of `<body>` tag:
 
 ```javascript
 <script src="ceu.min.js"></script>
