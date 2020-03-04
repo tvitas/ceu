@@ -2,8 +2,8 @@
 Displays cookies select panel and loads analytic scripts by user selection.
 
 ## Usage
-
-At the end of `<body>` tag:
+1. Put analytic scripts to separate files
+2. At the end of the `<body>` tag:
 
 ```javascript
 <script src="ceu.min.js"></script>
