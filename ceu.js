@@ -45,8 +45,8 @@ Css.prototype.run = function () {
 
 // Make CEU panel
 const Panel = function() {
-    this.labels = this.labels();
     this.lang = document.getElementsByTagName('html')[0].getAttribute('lang');
+    this.labels = this.labels();
     this.panel = this.panel();
 }
 Panel.prototype.labels = function() {
@@ -58,7 +58,7 @@ Panel.prototype.labels = function() {
 }
 Panel.prototype.run = function() {
     let container = document.getElementById('ceu');
-    container.innerHTML = this.panel();
+    container.innerHTML = this.panel;
 }
 Panel.prototype.panel = function() {
     let html = '<div id=\"ceumodal\">';
