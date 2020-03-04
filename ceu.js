@@ -58,7 +58,7 @@ Panel.prototype.labels = function() {
 }
 Panel.prototype.run = function() {
     let container = document.getElementById('ceu');
-    container.innerHTML = this.panel;
+    container.innerHTML = this.panel();
 }
 Panel.prototype.panel = function() {
     let html = '<div id=\"ceumodal\">';
