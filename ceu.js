@@ -171,7 +171,6 @@ Ceu.load = function(config) {
     new Css().run();
     new Panel().run();
 }
-
 Ceu.run = function() {
     const cookiesModal = document.getElementById('ceumodal');
     const cookiesPanel = document.getElementById('ceupanel');
