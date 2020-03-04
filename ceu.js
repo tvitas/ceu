@@ -69,7 +69,8 @@ Panel.prototype.panel = function() {
     html += '<p>' + i18n[this.lang].ceutext + '</p>';
     html += '<h4>' + i18n[this.lang].ceuh4 + '</h4>';
     for (let i = 0; i < this.labels.length; i++) {
-        html += '<div><label><input type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\" checked>' + i18n[this.lang][this.labels[i]] + '</label></div>';
+        html += '<div><label><input type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\" checked>' 
+        + i18n[this.lang][this.labels[i]] + '</label></div>';
     }
     html += '</div>';
     html += '<hr>';
