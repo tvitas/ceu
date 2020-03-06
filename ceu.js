@@ -69,7 +69,7 @@ Panel.prototype.panel = function() {
     html += '<p>' + i18n[this.lang].ceutext + '</p>';
     html += '<h4>' + i18n[this.lang].ceuh4 + '</h4>';
     for (let i = 0; i < this.labels.length; i++) {
-        html += '<div><label><input type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\" checked>' 
+        html += '<div><label><input type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\">' 
         + i18n[this.lang][this.labels[i]] + '</label></div>';
     }
     html += '</div>';
@@ -138,7 +138,7 @@ Cleaner.clean = function() {
     let dict = sessionStorage.getItem('allowCookies').split(',');
     if (Array.isArray(dict) && dict.length) {
         dict.forEach(function (name) {
-            const script = new Script(name).clean();
+            new Script(name).clean();
         });
     }
 }
