@@ -32,7 +32,6 @@ const i18n = {
 const Css = function() {
     this.css = dictionary['css'];
 }
-
 Css.prototype.run = function () {
     this.css.forEach(function (item) {
         let el = document.createElement('link');

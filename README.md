@@ -2,10 +2,11 @@
 Displays cookies select panel and loads analytic scripts by user selection.
 
 ## Usage
-1. Put analytic scripts to separate files
+1. Put analytic scripts into separate files
 2. At the end of the `<body>` tag:
 
 ```javascript
+<div id="ceu"></div>
 <script src="ceu.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
