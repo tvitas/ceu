@@ -2,15 +2,15 @@
 let dictionary = {};
 const i18n = {
     lt: {
-        ceutext: 'Interneto svetainėse *.lsmu.lt ir *.lsmuni.lt naudojami griežtai privalomi (techniniai) ' + 
-            'ir analitiniai slapukai. Techninių slapukų naudojimas yra būtinas tam, kad svetainės veiktų teisingai, o ' +
-            'ar naudoti analitinius slapukus, <strong>Jus galite pasirinkti žemiau</strong>.',
-        ceubtna: 'Tęsti su pasirinktais slapukais',
-        ceubtnd: 'Tęsti be slapukų',
+        ceutext: 'Paspaudę mygtuką „Sutinku“ Jūs sutinkate su analitinių slapukų įrašymu interneto svetainėse' + 
+        ' *.lsmu.lt ir *.lsmuni.lt. Sutikimą bet kada galėsite atšaukti, pakeisdami interneto naršyklės nustatymus ir ' + 
+        'ištrindami slapukus. Daugiau apie slapukus ir jų atsisakymą skaitykite ',
+        ceubtna: 'Sutinku',
+        ceubtnd: 'Tęsti be analitinių slapukų',
         ceuh3: 'Slapukai',
-        ceuh4: 'Leidžiu naudoti šiuos slapukus:',
+        ceuh4: 'Sutinku su šių slapukų naudojimu:',
         ceulink: 'https://lsmuni.lt/lt/apie-universiteta/slapuku-naudojimo-taisykles.html',
-        ceumore: 'Slapukų naudojimo taisyklės',
+        ceumore: 'slapukų naudojimo taisyklėse',
         gtag: '„Google analytics“',
         fbpixel: '„Facebook pixel“'
     },
@@ -62,21 +62,23 @@ Panel.prototype.run = function() {
 Panel.prototype.panel = function() {
     let html = '<div id=\"ceumodal\">';
     html += '<div id=\"ceupanel\">';
-    html += '<h3>' + i18n[this.lang].ceuh3 + '</h3>';
-    html += '<hr>';
+    // html += '<h3>' + i18n[this.lang].ceuh3 + '</h3>';
+    // html += '<hr>';
     html += '<div id=\"ceutext\">';
-    html += '<p>' + i18n[this.lang].ceutext + '</p>';
+    html += '<p>' + i18n[this.lang].ceutext + ' ' 
+    + '<a href=\"' + i18n[this.lang].ceulink + '\">' + i18n[this.lang].ceumore + '</a></p>';
     html += '<h4>' + i18n[this.lang].ceuh4 + '</h4>';
     for (let i = 0; i < this.labels.length; i++) {
-        html += '<div><label><input type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\">' 
-        + i18n[this.lang][this.labels[i]] + '</label></div>';
+        html += '<input id=\"box-' + i + '\" type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\">' 
+        html += '<label for=\"box-' +i + '\">' + i18n[this.lang][this.labels[i]] + '</label>';
+
     }
+    html += '<div class=\"clrf\"></div>';
     html += '</div>';
-    html += '<hr>';
+    html += '<div>';
+    html += '<a href=\"#\" id=\"ceubtnd\">' + i18n[this.lang].ceubtnd + '</a>';
     html += '<button id=\"ceubtna\">' + i18n[this.lang].ceubtna + '</button>';
-    html += '<button id=\"ceubtnd\">' + i18n[this.lang].ceubtnd + '</button>';
-    html += '<a href=\"' + i18n[this.lang].ceulink + '\">' + i18n[this.lang].ceumore + '</a>';
-    html += '</div></div>';
+    html += '</div></div></div>';
     return html;
 }
 
@@ -142,27 +144,6 @@ Cleaner.clean = function() {
     }
 }
 
-// Position CEU panel on display
-const Positioner = function() {}
-Positioner.vauto = function(element) {
-    let vh = Math.max(document.documentElement.clientHeight, window.clientHeight || 0);
-    let eh = element.clientHeight;
-    let margin = vh / 2  - eh / 2;
-    element.style.marginTop = margin + 'px';
-}
-Positioner.bottomFix = function(element) {
-    let vh = Math.max(document.documentElement.clientHeight, window.clientHeight || 0);
-    let eh = element.clientHeight;
-    let margin = vh  - eh ;
-    element.style.marginTop = margin + 'px';
-}
-Positioner.hauto = function(element) {
-    let vw = Math.max(document.documentElement.clientWidth, window.clientWidth || 0);
-    element.style.maxWidth = vw - 80 + 'px';
-    element.style.marginLeft = 'auto';
-    element.style.marginRight = 'auto';    
-}
-
 // CEU initializer/runner
 const Ceu = function() {}
 Ceu.load = function(config) {
@@ -175,8 +156,6 @@ Ceu.run = function() {
     const cookiesPanel = document.getElementById('ceupanel');
     if ((null === sessionStorage.getItem('cookieInfo')) || ('true' !== sessionStorage.getItem('cookieInfo'))) {
         cookiesModal.style.display = 'block';
-        Positioner.vauto(cookiesPanel);
-        Positioner.hauto(cookiesPanel);
     } else {
         cookiesModal.style.display = 'none';
         let dict = sessionStorage.getItem('allowCookies').split(',');
@@ -206,9 +185,5 @@ Ceu.run = function() {
         sessionStorage.setItem('cookieInfo', true);
         sessionStorage.setItem('allowCookies', []);
         cookiesModal.style.display = 'none';
-    }, false);
-    window.addEventListener('resize', function() {
-        Positioner.vauto(cookiesPanel);
-        Positioner.hauto(cookiesPanel);
     }, false);
 }
