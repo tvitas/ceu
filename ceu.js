@@ -2,27 +2,29 @@
 let dictionary = {};
 const i18n = {
     lt: {
-        ceutext: 'Paspaudę mygtuką „Sutinku“ Jūs sutinkate su analitinių slapukų įrašymu interneto svetainėse' + 
+        ceutext: 'Paspaudę mygtuką „Sutinku“ Jūs sutinkate su pažymėtų analitinių slapukų įrašymu interneto svetainėse' + 
         ' *.lsmu.lt ir *.lsmuni.lt. Sutikimą bet kada galėsite atšaukti, pakeisdami interneto naršyklės nustatymus ir ' + 
         'ištrindami slapukus. Daugiau apie slapukus ir jų atsisakymą skaitykite ',
         ceubtna: 'Sutinku',
         ceubtnd: 'Tęsti be analitinių slapukų',
         ceuh3: 'Slapukai',
-        ceuh4: 'Sutinku su šių slapukų naudojimu:',
+        ceuh4: 'Sutinku su šių slapukų įrašymu:',
         ceulink: 'https://lsmuni.lt/lt/apie-universiteta/slapuku-naudojimo-taisykles.html',
         ceumore: 'slapukų naudojimo taisyklėse',
         gtag: '„Google analytics“',
         fbpixel: '„Facebook pixel“'
     },
     en: {
-        ceutext: 'This site is using technical and analytic cookies. Technical cookies are necessary for functioning of ' +
-            'this site. Which kind of analytic cookies to use <strong>You can select below</strong>.',
-        ceubtna: 'Continue with selected cookies',
-        ceubtnd: 'Continue without any cookie',
+        ceutext: 'By clicking "I agree" you are agreeing to the recording of selected analytical' + 
+        'cookies on * .lsmu.lt and * .lsmuni.lt web sites.' + 
+        ' You can revoke your consent at any time by changing your Internet browser settings and deleting the cookies.' + 
+        ' Read more about cookies and how to decline them in ',
+        ceubtna: 'I agree',
+        ceubtnd: 'Continue without analytic cookies',
         ceuh3: 'Cookies',
         ceuh4: 'I agree with this cookies:',
         ceulink: 'https://lsmuni.lt/en/about-university/cookie-policy.html',
-        ceumore: 'Cookie policy',        
+        ceumore: 'cookie policy',        
         gtag: '\"Google analytics\"',
         fbpixel: '\"Facebook pixel\"'
     }
@@ -67,7 +69,7 @@ Panel.prototype.panel = function() {
     html += '<div id=\"ceutext\">';
     html += '<p>' + i18n[this.lang].ceutext + ' ' 
     + '<a href=\"' + i18n[this.lang].ceulink + '\">' + i18n[this.lang].ceumore + '</a></p>';
-    html += '<h4>' + i18n[this.lang].ceuh4 + '</h4>';
+    html += '<p>' + i18n[this.lang].ceuh4 + '</p>';
     for (let i = 0; i < this.labels.length; i++) {
         html += '<input id=\"box-' + i + '\" type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\">' 
         html += '<label for=\"box-' +i + '\">' + i18n[this.lang][this.labels[i]] + '</label>';
