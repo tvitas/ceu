@@ -2,15 +2,15 @@
 let dictionary = {};
 const i18n = {
     lt: {
-        ceutext: 'Paspaudę mygtuką „Sutinku“ Jūs sutinkate su pažymėtų analitinių slapukų įrašymu interneto svetainėse' + 
-        ' *.lsmu.lt ir *.lsmuni.lt. Sutikimą bet kada galėsite atšaukti, pakeisdami interneto naršyklės nustatymus ir ' + 
-        'ištrindami slapukus. Daugiau apie slapukus ir jų atsisakymą skaitykite ',
+        ceutext: 'Informuojame, kad šioje svetainėje naudojami slapukai (angl. cookies). ' +
+        'Sutikdami, paspauskite mygtuką „Sutinku“. Sutikimą bet kada galėsite atšaukti, ' +
+        'pakeisdami interneto naršyklės nustatymus ir ištrindami slapukus.',
         ceubtna: 'Sutinku',
         ceubtnd: 'Tęsti be analitinių slapukų',
         ceuh3: 'Slapukai',
         ceuh4: 'Sutinku su šių slapukų įrašymu:',
         ceulink: 'https://lsmuni.lt/lt/apie-universiteta/slapuku-naudojimo-taisykles.html',
-        ceumore: 'slapukų naudojimo taisyklėse',
+        ceumore: 'Slapukų naudojimo taisyklės.',
         gtag: '„Google analytics“',
         fbpixel: '„Facebook pixel“'
     },
@@ -62,25 +62,24 @@ Panel.prototype.run = function() {
     container.innerHTML = this.panel;
 }
 Panel.prototype.panel = function() {
-    let html = '<div id=\"ceumodal\">';
+    let html = '';//<div id=\"ceumodal\">';
     html += '<div id=\"ceupanel\">';
     // html += '<h3>' + i18n[this.lang].ceuh3 + '</h3>';
     // html += '<hr>';
     html += '<div id=\"ceutext\">';
-    html += '<p>' + i18n[this.lang].ceutext + ' ' 
-    + '<a href=\"' + i18n[this.lang].ceulink + '\">' + i18n[this.lang].ceumore + '</a></p>';
-    html += '<p>' + i18n[this.lang].ceuh4 + '</p>';
+    html += '<div class=\"ceutext\">'
     for (let i = 0; i < this.labels.length; i++) {
-        html += '<input id=\"box-' + i + '\" type=\"checkbox\" name=\"scripts\" value=\"' + this.labels[i] + '\">' 
-        html += '<label for=\"box-' +i + '\">' + i18n[this.lang][this.labels[i]] + '</label>';
-
+        html += '<input id=\"box-' + i + '\" type=\"hidden\" name=\"scripts\" value=\"' + this.labels[i] + '\">';
     }
+    html += '<p>' + i18n[this.lang].ceutext;
+    html += '<a href=\"' + i18n[this.lang].ceulink + '\">' + i18n[this.lang].ceumore + '</a></p>';
+    html += '</div>';
+    html += '<div class=\"ceubutton\">';
+    html += '<p><button id=\"ceubtna\">' + i18n[this.lang].ceubtna + '</button></p>';
+    html += '</div>';
     html += '<div class=\"clrf\"></div>';
     html += '</div>';
-    html += '<div>';
-    html += '<a href=\"#\" id=\"ceubtnd\">' + i18n[this.lang].ceubtnd + '</a>';
-    html += '<button id=\"ceubtna\">' + i18n[this.lang].ceubtna + '</button>';
-    html += '</div></div></div>';
+    html += '</div>';
     return html;
 }
 
@@ -154,12 +153,12 @@ Ceu.load = function(config) {
     new Panel().run();
 }
 Ceu.run = function() {
-    const cookiesModal = document.getElementById('ceumodal');
+    //const cookiesModal = document.getElementById('ceumodal');
     const cookiesPanel = document.getElementById('ceupanel');
     if ((null === sessionStorage.getItem('cookieInfo')) || ('true' !== sessionStorage.getItem('cookieInfo'))) {
-        cookiesModal.style.display = 'block';
+        cookiesPanel.style.display = 'block';
     } else {
-        cookiesModal.style.display = 'none';
+        cookiesPanel.style.display = 'none';
         let dict = sessionStorage.getItem('allowCookies').split(',');
         if ((Array.isArray(dict)) && (dict.length) && ('' !== dict[0])) {
             dict.forEach (function(item) {
@@ -172,20 +171,23 @@ Ceu.run = function() {
         let scripts = [];
         if (inputs.length > 0) {
             inputs.forEach (function(item) {
-                if (item.checked) {
+                //if (item.checked) {
                     Loader.load(item.value);
                     scripts.push(item.value);
-                }
+                //}
             });
         }
-        cookiesModal.style.display = 'none';
+        cookiesPanel.style.display = 'none';
         sessionStorage.setItem('cookieInfo', true);
         sessionStorage.setItem('allowCookies', scripts);
     }, false);
+/*
     document.getElementById('ceubtnd').addEventListener('click', function() {
         Cleaner.clean();
         sessionStorage.setItem('cookieInfo', true);
         sessionStorage.setItem('allowCookies', []);
         cookiesModal.style.display = 'none';
     }, false);
+
+*/
 }
