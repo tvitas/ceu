@@ -15,16 +15,15 @@ const i18n = {
         fbpixel: '„Facebook pixel“'
     },
     en: {
-        ceutext: 'By clicking "I agree" you are agreeing to the recording of selected analytical' + 
-        'cookies on * .lsmu.lt and * .lsmuni.lt web sites.' + 
-        ' You can revoke your consent at any time by changing your Internet browser settings and deleting the cookies.' + 
-        ' Read more about cookies and how to decline them in ',
+        ceutext: 'We inform that this website uses cookies. If you agree, click the "I Agree" button. ' +
+        'You can revoke your consent at any time by changing your web browser settings and deleting ' +
+        'your cookies. ',
         ceubtna: 'I agree',
         ceubtnd: 'Continue without analytic cookies',
         ceuh3: 'Cookies',
         ceuh4: 'I agree with this cookies:',
         ceulink: 'https://lsmuni.lt/en/about-university/cookie-policy.html',
-        ceumore: 'cookie policy',        
+        ceumore: 'Cookie policy',        
         gtag: '\"Google analytics\"',
         fbpixel: '\"Facebook pixel\"'
     }
