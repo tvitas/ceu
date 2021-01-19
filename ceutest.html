@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CEU example">
+<title>CEU</title>
+<link href="ceu.css" rel="stylesheet">
+</head>
+<body>
+<div id="ceu"></div>
+<script src="ceu.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    Ceu.load({
+            scripts: {
+                gtag: {
+                    url: ['https://www.googletagmanager.com/gtag/js?id=UA-XXX','gtag.js'],
+                    cookies: ['_ga', '_gid', '_gat_gtag_UA_XXX'],
+                    location: document.head
+                },
+                fbpixel: {
+                    url: ['fbp.js'],
+                    cookies: ['_fbp', 'fr'],
+                    location: document.head
+                }
+            },
+            css: ['ceu.css'],
+        })
+    Ceu.run();
+}, false);
+</script>
+</body>
+</html>

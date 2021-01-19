@@ -23,7 +23,7 @@ const i18n = {
         ceuh3: 'Cookies',
         ceuh4: 'I agree with this cookies:',
         ceulink: 'https://lsmuni.lt/en/about-university/cookie-policy.html',
-        ceumore: 'Cookie policy',        
+        ceumore: 'Cookie policy',
         gtag: '\"Google analytics\"',
         fbpixel: '\"Facebook pixel\"'
     }
@@ -39,7 +39,7 @@ Css.prototype.run = function () {
         el.setAttribute('rel', 'stylesheet');
         el.setAttribute('type', 'text/css');
         el.setAttribute('href', item);
-        document.head.appendChild(el);        
+        document.head.appendChild(el);
     });
 }
 
@@ -98,8 +98,8 @@ Script.prototype.run = function() {
             el.async = this.async;
             el.id = this.name + '-' + i;
             this.location.appendChild(el);
-        }    
-    }     
+        }
+    }
 }
 Script.prototype.clean = function() {
     let cookies = this.items.cookies;
@@ -132,11 +132,11 @@ Loader.load = function(name, location) {
 // CEU script cleaner
 const Cleaner = function() {}
 Cleaner.clean = function() {
-    let ac = sessionStorage.getItem('allowCookies');
+    let ac = localStorage.getItem('allowCookies');
     if ((null === ac) || ('' === ac)) {
         return;
     }
-    let dict = sessionStorage.getItem('allowCookies').split(',');
+    let dict = localStorage.getItem('allowCookies').split(',');
     if (Array.isArray(dict) && dict.length) {
         dict.forEach(function (name) {
             new Script(name).clean();
@@ -154,11 +154,11 @@ Ceu.load = function(config) {
 Ceu.run = function() {
     //const cookiesModal = document.getElementById('ceumodal');
     const cookiesPanel = document.getElementById('ceupanel');
-    if ((null === sessionStorage.getItem('cookieInfo')) || ('true' !== sessionStorage.getItem('cookieInfo'))) {
+    if ((null === localStorage.getItem('cookieInfo')) || ('true' !== localStorage.getItem('cookieInfo'))) {
         cookiesPanel.style.display = 'block';
     } else {
         cookiesPanel.style.display = 'none';
-        let dict = sessionStorage.getItem('allowCookies').split(',');
+        let dict = localStorage.getItem('allowCookies').split(',');
         if ((Array.isArray(dict)) && (dict.length) && ('' !== dict[0])) {
             dict.forEach (function(item) {
                 Loader.load(item);
@@ -177,14 +177,14 @@ Ceu.run = function() {
             });
         }
         cookiesPanel.style.display = 'none';
-        sessionStorage.setItem('cookieInfo', true);
-        sessionStorage.setItem('allowCookies', scripts);
+        localStorage.setItem('cookieInfo', true);
+        localStorage.setItem('allowCookies', scripts);
     }, false);
 /*
     document.getElementById('ceubtnd').addEventListener('click', function() {
         Cleaner.clean();
-        sessionStorage.setItem('cookieInfo', true);
-        sessionStorage.setItem('allowCookies', []);
+        localStorage.setItem('cookieInfo', true);
+        localStorage.setItem('allowCookies', []);
         cookiesModal.style.display = 'none';
     }, false);
 
